@@ -22,7 +22,7 @@ export default function AdminPage() {
     async function loadDemandData() {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/demand/summary"
+          "https://civora-ai-bdwf.onrender.com/api/demand/summary"
         );
 
         if (!response.ok) {
