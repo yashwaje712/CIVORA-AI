@@ -22,7 +22,7 @@ export default function GovernmentDashboardPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("civora_token");
+    const token = localStorage.getItem("access_token");
 
     if (!token) {
       router.replace("/login");
@@ -32,7 +32,7 @@ export default function GovernmentDashboardPage() {
     const loadDemandData = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/demand/summary",
+          "https://civora-ai-bdwf.onrender.com/api/demand/summary",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ export default function GovernmentDashboardPage() {
   }, [router]);
 
   const logout = () => {
-    localStorage.removeItem("civora_token");
+    localStorage.removeItem("access_token");
     router.replace("/login");
   };
 
